@@ -1,0 +1,19 @@
+spring:
+  mvc:
+     view:
+       prefix: /
+       suffix: .html
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/contactInfo?characterEncoding=UTF-8&useUnicode=true
+    username: root
+    password: 111111
+    type: com.alibaba.druid.pool.DruidDataSource
+
+  thymeleaf:
+    cache: false
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cn.xs.pojo
+
+

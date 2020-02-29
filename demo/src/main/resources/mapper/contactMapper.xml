@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.xs.mapper.ContactMapper">
+
+    <select id="getList" resultType="cn.xs.pojo.Contact">
+             SELECT * FROM contact
+    </select>
+
+    <insert id="getAdd" parameterType="cn.xs.pojo.Contact">
+    INSERT INTO contact(id,cname,mobile,qq,email,address)VALUES(DEFAULT,#{cname},#{mobile},#{qq},#{email},#{address});
+    </insert>
+
+    <select id="getLike" resultType="cn.xs.pojo.Contact">
+              SELECT * FROM contact where cname LIKE '%${cname}%';
+    </select>
+
+
+
+</mapper>

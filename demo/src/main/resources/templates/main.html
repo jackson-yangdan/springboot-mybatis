@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/contact/getLike" method="post">
+    <table border="1" width="60%" >
+        <tr>
+            <th colspan="6">在线通讯录</th>
+        </tr>
+        <tr>
+            <th colspan="6" align="left">
+                查找联系人:<input type="text" name="cname"><input type="submit" value="查找">&nbsp;&nbsp;<a href="/contact/add">添加联系人</a>
+            </th>
+        </tr>
+        <tr>
+            <th>序号</th>
+            <th>姓名</th>
+            <th>手机</th>
+            <th>QQ</th>
+            <th>Email</th>
+            <th>地址</th>
+        </tr>
+        <tr th:each="temp:${page.list}">
+            <td th:text="${temp.id}"></td>
+            <td th:text="${temp.cname}"></td>
+            <td th:text="${temp.mobile}"></td>
+            <td th:text="${temp.qq}"></td>
+            <td th:text="${temp.email}"></td>
+            <td th:text="${temp.address}"></td>
+        </tr>
+    </table>
+    <div>
+        <a th:href="@{/contact/main(start1=0)}">[首  页]</a>
+        <a th:href="@{/contact/main(start1=${page.pageNum-1})}">[上一页]</a>
+        <a th:href="@{/contact/main(start1=${page.pageNum+1})}">[下一页]</a>
+        <a th:href="@{/contact/main(start1=${page.pages})}">[末  页]</a>
+    </div>
+</form>
+</body>
+</html>
